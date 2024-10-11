@@ -26,11 +26,6 @@ jobs:
     # Make Gerar Arquivo
     - name: make
       run: make
-
-    #GCC
-    - name: Run GCC
-      run: make gcc
-    
     
     # CppCheck
     - name: Run cppcheck
