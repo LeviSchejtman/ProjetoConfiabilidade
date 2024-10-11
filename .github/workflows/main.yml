@@ -44,14 +44,10 @@ jobs:
     - name: Run Cov
       run: |
         make cov
+        gcc -fprofile-arcs -ftest-coverage *.c
+        a.out
         gcov *.c
 
-    # Mostra o resultado de cobertura
-    - name: Upload Coverage Report
-      uses: actions/upload-artifact@v4
-      with:
-        name: code-coverage-report
-        path: '*.gcov'
     # Unity
     #- name: Run Unity
     #  run: make -f Unity/examples/foo/makefile
