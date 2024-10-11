@@ -40,20 +40,19 @@ jobs:
     - name: Run Address
       run: make address
 
-    # Gera a cobertura de código
-    - name: Code Coverage
+    # Cov
+    - name: Run Cov
       run: |
+        make cov
         gcov *.c
         cat *.gcov
 
     # Mostra o resultado de cobertura
     - name: Upload Coverage Report
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v2
       with:
-          name: code-coverage-report
-          path: '*.gcov'
-
-
+        name: code-coverage-report
+        path: '*.gcov'
     # Unity
     #- name: Run Unity
     #  run: make -f Unity/examples/foo/makefile
