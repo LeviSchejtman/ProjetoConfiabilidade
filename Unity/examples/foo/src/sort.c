@@ -47,13 +47,13 @@ int sort(int* a, int length, char* type, int algorithm) {
                 break;
             case MERGE:
                 if (!strcmp(type,"Onlogn"))
-                    merge_sort(s, length - 1);
+                    merge_sort(s, 0, length - 1);
                 else
                     status = 1;
                 break;
             case QUICK:
                 if (!strcmp(type,"Onlogn"))
-                    quick_sort(s, length - 1);
+                    quick_sort(s, 0, length - 1);
                 else
                     status = 1;
                 break;
