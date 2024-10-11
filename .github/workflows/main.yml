@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: C/C++ CI
 
 on:
@@ -50,3 +51,59 @@ jobs:
       run: make -f Unity/examples/foo/makefile
 
         
+=======
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+
+    # Instala as dependências
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install gcc clang valgrind cppcheck
+
+    # Make Clean 
+    - name: clean
+      run: make clean
+
+    # Make Gerar Arquivo
+    - name: make
+      run: make
+    
+    # CppCheck
+    - name: Run cppcheck
+      run: make cppcheck
+
+
+    # Valgrind
+    - name: Run Valgrind
+      run: make valgrind
+
+    # Address Sanitizer
+    - name: Run Address
+      run: make address
+
+    # Cov
+    - name: Run Cov
+      run: |
+        make cov
+        gcov *.c
+        ls
+
+    # Unity
+    #- name: Run Unity
+    #  run: make -f Unity/examples/foo/makefile
+
+        
+>>>>>>> b606cb7b10241ac80a1938c1e6a1c8a983ed938b
