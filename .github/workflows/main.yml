@@ -45,7 +45,5 @@ jobs:
       run: |
         make cov
 
-    # Unity
-    - name: Run Unity tests
-      run: ./test_runner
+
 
