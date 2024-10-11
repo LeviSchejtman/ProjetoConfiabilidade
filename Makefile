@@ -16,19 +16,16 @@ clean:
 identifier: identifier.c
 	$(GCC) $(GCCFLAGS) -o $@ $@.c
 
-# Compilação básica com gcc
-gcc:
-	$(GCC) $(GCCFLAGS) -o $@ $@.c
 
 # Sanitização de endereço
 address:
-	$(GCC) $(GCCFLAGS) -fsanitize=address $@.c -o $@
+	$(GCC) $(GCCFLAGS) -fsanitize=address main.c -o main
 
 # Verificação de memória com Valgrind
 valgrind:
-	$(GCC) $(GCCFLAGS) $@.c -o $@
-	valgrind --leak-check=full --show-leak-kinds=all ./$@
+	$(GCC) $(GCCFLAGS) main.c -o main
+	valgrind --leak-check=full --show-leak-kinds=all ./main
 
 # Análise estática de código com cppcheck
 cppcheck:
-	cppcheck --enable=all --suppress=missingIncludeSystem $@.c
+	cppcheck --enable=all --suppress=missingIncludeSystem main.c
