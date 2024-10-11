@@ -49,5 +49,5 @@ jobs:
     # Unity
     - name: Run Unity
       run: |
-        cd .\examples\foo\
+        sudo cd .\examples\foo\
         make all
