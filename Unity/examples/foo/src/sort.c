@@ -34,7 +34,7 @@ int sort(int* a, int length, char* type, int algorithm) {
                     status = 1;
                 break;
             case SELECTION:
-                if (!strcmp(type,"On2"))
+                if (!strcmp(type,"On"))
                     selection_sort(s, length);
                 else
                     status = 1;
