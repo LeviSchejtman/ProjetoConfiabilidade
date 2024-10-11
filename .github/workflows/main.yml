@@ -45,7 +45,6 @@ jobs:
       run: |
         make cov
         gcov *.c
-        cat *.gcov
 
     # Mostra o resultado de cobertura
     - name: Upload Coverage Report
