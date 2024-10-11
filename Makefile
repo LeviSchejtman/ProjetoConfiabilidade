@@ -2,13 +2,11 @@
 GCCFLAGS = -g -Wall -Wfatal-errors -fprofile-arcs -ftest-coverage
 ALL = identifier
 GCC = gcc
-UNITY_DIR = Unity/src
 
 
 # Compilação do projeto principal
 all: 
-	$(GCC) $(GCCFLAGS) -o app src/quick_sort.c src/merge_sort.c src/heap_sort.c src/selection_sort.c src/insertion_sort.c src/bubble_sort.c src/radix_sort.c src/counting_sort.c src/sort.c main.c
-	$(GCC) $(GCCFLAGS) -I$(UNITY_DIR) $(UNITY_DIR)/unity.c test_file.c -o test_runner
+	$(GCC) $(GCCFLAGS) -o app srco/quick_sort.c srco/merge_sort.c srco/heap_sort.c srco/selection_sort.c srco/insertion_sort.c srco/bubble_sort.c srco/radix_sort.c srco/counting_sort.c srco/sort.c main.c
 # Limpeza dos arquivos gerados
 clean:
 	rm -f app
@@ -23,31 +21,31 @@ identifier: identifier.c
 
 # Sanitização de endereço
 address:
-	$(GCC) $(GCCFLAGS) -fsanitize=address src/quick_sort.c src/merge_sort.c src/heap_sort.c src/selection_sort.c src/insertion_sort.c src/bubble_sort.c src/radix_sort.c src/counting_sort.c src/sort.c main.c -o main
+	$(GCC) $(GCCFLAGS) -fsanitize=address srco/quick_sort.c srco/merge_sort.c srco/heap_sort.c srco/selection_sort.c srco/insertion_sort.c srco/bubble_sort.c srco/radix_sort.c srco/counting_sort.c srco/sort.c main.c -o main
 
 
 # Verificação de memória com Valgrind
 valgrind:
-	$(GCC) $(GCCFLAGS) src/quick_sort.c src/merge_sort.c src/heap_sort.c src/selection_sort.c src/insertion_sort.c src/bubble_sort.c src/radix_sort.c src/counting_sort.c src/sort.c main.c -o main
+	$(GCC) $(GCCFLAGS) srco/quick_sort.c srco/merge_sort.c srco/heap_sort.c srco/selection_sort.c srco/insertion_sort.c srco/bubble_sort.c srco/radix_sort.c srco/counting_sort.c srco/sort.c main.c -o main
 	valgrind --leak-check=full --show-leak-kinds=all ./main
 
 # Análise estática de código com cppcheck
 cppcheck:
-	cppcheck --enable=all --suppress=missingIncludeSystem src/quick_sort.c src/merge_sort.c src/heap_sort.c src/selection_sort.c src/insertion_sort.c src/bubble_sort.c src/radix_sort.c src/counting_sort.c src/sort.c main.c
+	cppcheck --enable=all --suppress=missingIncludeSystem srco/quick_sort.c srco/merge_sort.c srco/heap_sort.c srco/selection_sort.c srco/insertion_sort.c srco/bubble_sort.c srco/radix_sort.c srco/counting_sort.c srco/sort.c main.c
 
 # Cobertura de código com gcov
 cov: all
 	./app  # Executa o programa para gerar dados de cobertura
 	gcov -b main.c
 	gcov -b cov-identifier.gcda
-	gcov -b src/quick_sort.c 
-	gcov -b src/merge_sort.c 
-	gcov -b src/heap_sort.c 
-	gcov -b src/selection_sort.c 
-	gcov -b src/insertion_sort.c
-	gcov -b src/bubble_sort.c
-	gcov -b src/radix_sort.c
-	gcov -b src/counting_sort.c
-	gcov -b src/sort.c
+	gcov -b srco/quick_sort.c 
+	gcov -b srco/merge_sort.c 
+	gcov -b srco/heap_sort.c 
+	gcov -b srco/selection_sort.c 
+	gcov -b srco/insertion_sort.c
+	gcov -b srco/bubble_sort.c
+	gcov -b srco/radix_sort.c
+	gcov -b srco/counting_sort.c
+	gcov -b srco/sort.c
 	gcov -b identifier.c
 
