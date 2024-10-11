@@ -2,6 +2,7 @@
 GCCFLAGS = -g -Wall -Wfatal-errors -fprofile-arcs -ftest-coverage
 ALL = identifier
 GCC = gcc
+UNITY_DIR = Unity/src
 
 
 # Compilação do projeto principal
@@ -50,4 +51,5 @@ cov: all
 	gcov -b src/sort.c
 	gcov -b identifier.c
 
-
+unity:
+	$(GCC) $(GCCFLAGS) -I$(UNITY_DIR) $(UNITY_DIR)/unity.c test_file.c -o test_runner
