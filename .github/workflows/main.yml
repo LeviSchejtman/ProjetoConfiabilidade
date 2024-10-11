@@ -44,3 +44,9 @@ jobs:
     - name: Run Cov
       run: |
         make cov
+
+    # Unity
+    - name: Run Unity
+      run: |
+        cd .\Unity\examples\foo\
+        make all

@@ -23,7 +23,6 @@ int main(void)
 
     int status = sort(a, length, "On2", SELECTION);
     printf("Status: %d\n", status);
-    printf("%d", length);
     printf("Sorted: \n");
     print_array(a, length);
 
