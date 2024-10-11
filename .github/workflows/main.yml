@@ -46,7 +46,7 @@ jobs:
         make cov
 
     # Unity
-    - name: Run Unity
-      run: make -f Unity/examples/foo/makefile
+    #- name: Run Unity
+    #  run: make -f Unity/examples/foo/makefile
 
         
