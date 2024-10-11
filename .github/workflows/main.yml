@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v2
 
 
     # Instala as dependências
@@ -40,10 +40,19 @@ jobs:
     - name: Run Address
       run: make address
 
-    # Cov
-    - name: Run Cov
+    # Gera a cobertura de código
+    - name: Code Coverage
       run: |
-        make cov
+        gcov *.c
+        cat *.gcov
+
+    # Mostra o resultado de cobertura
+    - name: Upload Coverage Report
+      uses: actions/upload-artifact@v2
+      with:
+          name: code-coverage-report
+          path: '*.gcov'
+
 
     # Unity
     #- name: Run Unity
