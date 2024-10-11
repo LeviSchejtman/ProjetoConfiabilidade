@@ -46,4 +46,8 @@ jobs:
         make cov
 
 
-
+    # Unity
+    - name: Run Unity
+      run: |
+        cd .\examples\foo\
+        make all
