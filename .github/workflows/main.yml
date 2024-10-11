@@ -21,25 +21,25 @@ jobs:
 
     # Make Clean e Make Gerar Arquivo
     - name: make
-      run: "make clean; make"
+      run: make clean; make
 
 
     #GCC
     - name: Run GCC
-      run: "make gcc"
+      run: make gcc
     
     
     # CppCheck
     - name: Run cppcheck
-      run: "make cppcheck"
+      run: make cppcheck
 
 
     # Valgrind
     - name: Run Valgrind
-      run: "make valgrind"
+      run: make valgrind
 
     # Address Sanitizer
     - name: Run Address
-      run: "make address"
+      run: make address
 
 
