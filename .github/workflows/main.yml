@@ -40,4 +40,6 @@ jobs:
     - name: Run Address
       run: make address
 
-
+    # Cov
+    - name: Run Cov
+      run: make cov
