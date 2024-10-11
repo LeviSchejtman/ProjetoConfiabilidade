@@ -1,0 +1,51 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+
+    # Instala as dependências
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install gcc clang valgrind cppcheck
+
+    # Make Clean 
+    - name: clean
+      run: make clean
+
+    # Make Gerar Arquivo
+    - name: make
+      run: make
+    
+    # CppCheck
+    - name: Run cppcheck
+      run: make cppcheck
+
+
+    # Valgrind
+    - name: Run Valgrind
+      run: make valgrind
+
+    # Address Sanitizer
+    - name: Run Address
+      run: make address
+
+    # Cov
+    - name: Run Cov
+      run: |
+        make cov
+
+    # Unity
+    - name: Run Unity
+      run: |
+        make all
