@@ -17,15 +17,29 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install gcc clang gcov valgrind cppcheck
+        sudo apt-get install gcc clang valgrind cppcheck
 
     # Make Clean e Make Gerar Arquivo
     - name: make
       run: "make clean; make"
 
+
+    #GCC
+    - name: Run GCC
+      run: "make gcc"
+    
+    
     # CppCheck
     - name: Run cppcheck
-      run: cppcheck --enable=all --inconclusive --error-exitcode=1 .
+      run: "make cppcheck"
 
+
+    # Valgrind
+    - name: Run Valgrind
+      run: "make valgrind"
+
+    # Address Sanitizer
+    - name: Run Address
+      run: "make address"
 
 
