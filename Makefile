@@ -1,5 +1,5 @@
 # Variáveis de configuração
-GCCFLAGS = -g -Wall -Wfatal-errors 
+GCCFLAGS = -g -Wall -Wfatal-errors -fprofile-arcs -ftest-coverage
 ALL = identifier
 GCC = gcc
 
