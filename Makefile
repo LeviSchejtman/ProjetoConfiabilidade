@@ -12,7 +12,6 @@ all:
 clean:
 	rm -f app
 	rm -fr $(ALL) *.o cov* *.dSYM *.gcda *.gcno *.gcov
-	$(CLEANUP) $(TARGET1)
 	
 
 # Compilação do identificador
