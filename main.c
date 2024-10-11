@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "src/sort.h"
+#include "srco/sort.h"
 
 // Main Functions
 void print_array(int* a, int length){
