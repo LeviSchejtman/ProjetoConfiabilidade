@@ -23,7 +23,7 @@ address:
 
 # Verificação de memória com Valgrind
 valgrind:
-	$(GCC) $(GCCFLAGS) main.c -o main
+	$(GCC) $(GCCFLAGS) src/quick_sort.c src/merge_sort.c src/heap_sort.c src/selection_sort.c src/insertion_sort.c src/bubble_sort.c src/radix_sort.c src/counting_sort.c src/sort.c main.c -o main
 	valgrind --leak-check=full --show-leak-kinds=all ./main
 
 # Análise estática de código com cppcheck
