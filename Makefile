@@ -46,3 +46,4 @@ cov: all
 	gcov -b src/counting_sort.c
 	gcov -b src/sort.c
 	gcov -b identifier.c  # Gera os relatórios de cobertura de código
+	cat main.c.gcov
