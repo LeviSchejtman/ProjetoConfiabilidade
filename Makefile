@@ -33,7 +33,7 @@ cppcheck:
 
 # Cobertura de código com gcov
 cov: all
-	./cov  # Executa o programa para gerar dados de cobertura
+	./app  # Executa o programa para gerar dados de cobertura
 	gcov -b main.c
 	gcov -b cov-identifier.gcda
 	gcov -b src/quick_sort.c 
