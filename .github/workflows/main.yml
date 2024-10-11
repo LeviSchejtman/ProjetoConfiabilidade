@@ -46,8 +46,3 @@ jobs:
         make cov
 
 
-    # Unity
-    - name: Run Unity
-      run: |
-        sudo cd .\examples\foo\
-        make all
