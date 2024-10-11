@@ -47,6 +47,6 @@ jobs:
 
     # Unity
     - name: Run Unity
-      run: make -f examples/foo
+      run: make -f examples/foo/makefile
 
         
