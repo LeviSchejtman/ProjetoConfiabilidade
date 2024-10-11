@@ -48,5 +48,7 @@ jobs:
     # Unity
     - name: Run Unity
       run: |
+        ls
         cd .\Unity\examples\foo\
+        ls
         make all
