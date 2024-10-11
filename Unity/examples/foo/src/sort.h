@@ -10,6 +10,6 @@ void selection_sort(int*, int);
 void heap_sort(int*, int);
 void merge_sort(int*, int, int);
 void quick_sort(int*, int, int);
-int sort(int*, int, char*, int);
+int sort(int*, int, char, int);
 
 enum types{COUNTING, RADIX, BUBBLE, INSERTION, SELECTION, HEAP, MERGE, QUICK};
