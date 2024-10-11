@@ -23,7 +23,7 @@ ifeq ($(shell uname -s), Darwin)
 C_COMPILER=clang
 endif
 
-UNITY_ROOT= ..Unity
+UNITY_ROOT= ../..
 
 CFLAGS=-std=c99
 CFLAGS += -Wall
@@ -43,13 +43,15 @@ CFLAGS += -Wold-style-definition
 TARGET_BASE1=all_tests
 TARGET1 = $(TARGET_BASE1)$(TARGET_EXTENSION)
 SRC_FILES1=\
-  $(UNITY_ROOT)/src/unity.c \
-  $(UNITY_ROOT)/extras/fixture/src/unity_fixture.c \
-  src/sort.c \
-  test/TestFoo.c \
-  test/test_runners/TestFoo_Runner.c \
-  test/test_runners/all_tests.c
-INC_DIRS=-Isrc -I$(UNITY_ROOT)/src -I$(UNITY_ROOT)/extras/fixture/src
+  $(UNITY_ROOT)/Unity/src/unity.c \
+  $(UNITY_ROOT)/Unity/extras/fixture/src/unity_fixture.c \
+  $(UNITY_ROOT)/Unity/src/unity.c \
+  $(UNITY_ROOT)/Unity/extras/fixture/src/unity_fixture.c \
+  $(UNITY_ROOT)/Unity/examples/foo/src/sort.c \
+  $(UNITY_ROOT)/Unity/examples/foo/test/TestFoo.c \
+  $(UNITY_ROOT)/Unity/examples/foo/test/test_runners/TestFoo_Runner.c \
+  $(UNITY_ROOT)/Unity/examples/foo/test/test_runners/all_tests.c
+INC_DIRS=-Isrc -I$(UNITY_ROOT)/Unity/src -I$(UNITY_ROOT)/Unity/extras/fixture/src
 SYMBOLS=
 
 ci: CFLAGS += -Werror
