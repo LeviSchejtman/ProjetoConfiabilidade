@@ -42,4 +42,7 @@ jobs:
 
     # Cov
     - name: Run Cov
-      run: make cov
+      run: |
+        make cov
+        ./cov
+        gcov -b cov-identifier.gcda
