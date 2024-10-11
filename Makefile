@@ -34,16 +34,15 @@ cppcheck:
 # Cobertura de código com gcov
 cov: all
 	./app  # Executa o programa para gerar dados de cobertura
-	gcov -b main.c
-	gcov -b cov-identifier.gcda
-	gcov -b src/quick_sort.c 
-	gcov -b src/merge_sort.c 
-	gcov -b src/heap_sort.c 
-	gcov -b src/selection_sort.c 
-	gcov -b src/insertion_sort.c
-	gcov -b src/bubble_sort.c
-	gcov -b src/radix_sort.c
-	gcov -b src/counting_sort.c
-	gcov -b src/sort.c
-	gcov -b identifier.c  # Gera os relatórios de cobertura de código
-	cat main.c.gcov
+	gcov -a main.c
+	gcov -a cov-identifier.gcda
+	gcov -a src/quick_sort.c 
+	gcov -a src/merge_sort.c 
+	gcov -a src/heap_sort.c 
+	gcov -a src/selection_sort.c 
+	gcov -a src/insertion_sort.c
+	gcov -a src/bubble_sort.c
+	gcov -a src/radix_sort.c
+	gcov -a src/counting_sort.c
+	gcov -a src/sort.c
+	gcov -a identifier.c  # Gera os relatórios de cobertura de código
