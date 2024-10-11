@@ -48,4 +48,4 @@ jobs:
     # Unity
     - name: Run Unity
       run: |
-        make all
+        make unity
